@@ -54,7 +54,7 @@ StyledRect {
 
             StyledText {
                 Layout.fillWidth: true
-                text: IdleInhibitor.enabled ? qsTr("Preventing sleep mode") : qsTr("Normal power management")
+                text: IdleInhibitor.enabled ? qsTr(Config.dialogues.pick(Config.dialogues.idleInhibitor.keepAwake)) : qsTr(Config.dialogues.pick(Config.dialogues.idleInhibitor.normal))
                 color: Colours.palette.m3onSurfaceVariant
                 font.pointSize: Appearance.font.size.small
                 elide: Text.ElideRight

@@ -13,6 +13,10 @@ import QtQuick.Layouts
 ColumnLayout {
     id: root
 
+    function pick(a) {
+        return a[Math.floor(Math.random() * a.length)]
+    }
+
     required property var lock
 
     anchors.fill: parent
@@ -22,7 +26,7 @@ ColumnLayout {
 
     StyledText {
         Layout.fillWidth: true
-        text: Notifs.list.length > 0 ? qsTr("%1 notification%2").arg(Notifs.list.length).arg(Notifs.list.length === 1 ? "" : "s") : qsTr("Notifications")
+        text: Notifs.list.length > 0 ? qsTr(Config.dialogues.pick(Config.dialogues.notification.hasNotification)).arg(Notifs.list.length).arg(Notifs.list.length === 1 ? "" : "s") : qsTr("Notifications")
         color: Colours.palette.m3outline
         font.family: Appearance.font.family.mono
         font.weight: 500
@@ -61,9 +65,11 @@ ColumnLayout {
 
                 StyledText {
                     Layout.alignment: Qt.AlignHCenter
-                    text: Config.lock.hideNotifs ? qsTr("Unlock for Notifications") : qsTr("No Notifications")
+                    text: {
+                        return Config.lock.hideNotifs ? qsTr("Unlock for Notifications") : qsTr(Config.dialogues.pick(Config.dialogues.notification.none))
+                    }
                     color: Colours.palette.m3outlineVariant
-                    font.pointSize: Appearance.font.size.large
+                    font.pointSize: Appearance.font.size.small
                     font.family: Appearance.font.family.mono
                     font.weight: 500
                 }

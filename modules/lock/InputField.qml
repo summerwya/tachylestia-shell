@@ -41,10 +41,10 @@ Item {
 
         text: {
             if (root.pam.passwd.active)
-                return qsTr("Loading...");
+                return qsTr(Config.dialogues.pick(Config.dialogues.lock.loading));
             if (root.pam.state === "max")
-                return qsTr("You have reached the maximum number of tries");
-            return qsTr("Enter your password");
+                return qsTr(Config.dialogues.pick(Config.dialogues.lock.maxAttempts));
+            return qsTr(Config.dialogues.pick(Config.dialogues.lock.inputField));
         }
 
         animate: true

@@ -175,12 +175,12 @@ Singleton {
 
     function getWeatherCondition(code: string): string {
         const conditions = {
-            "0": "Clear",
-            "1": "Clear",
-            "2": "Partly cloudy",
+            "0": "It's clear",
+            "1": "Pretty clear",
+            "2": "Kinda cloudy, torena-kun",
             "3": "Overcast",
-            "45": "Fog",
-            "48": "Fog",
+            "45": "It's foggy, torena-kun",
+            "48": "It's foggy, torena-kun",
             "51": "Drizzle",
             "53": "Drizzle",
             "55": "Drizzle",

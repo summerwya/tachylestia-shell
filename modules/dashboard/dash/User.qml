@@ -135,7 +135,7 @@ Row {
                 anchors.verticalCenter: icon.verticalCenter
                 anchors.left: icon.right
                 anchors.leftMargin: icon.anchors.leftMargin
-                text: `:  ${SysInfo.osPrettyName || SysInfo.osName}`
+                text: `:  Arching Tachyon`
                 font.pointSize: Appearance.font.size.normal
 
                 width: Config.dashboard.sizes.infoWidth
@@ -145,7 +145,7 @@ Row {
 
         InfoLine {
             icon: "select_window_2"
-            text: SysInfo.wm
+            text: "Hyprtachyon"
             colour: Colours.palette.m3secondary
         }
 

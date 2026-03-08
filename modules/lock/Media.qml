@@ -74,7 +74,9 @@ Item {
         StyledText {
             Layout.topMargin: Appearance.padding.large
             Layout.bottomMargin: Appearance.spacing.larger
-            text: qsTr("Now playing")
+            text: {
+                return qsTr(layout.pick(Config.dialogues.mediaPlayer.playing))
+            }
             color: Colours.palette.m3onSurfaceVariant
             font.family: Appearance.font.family.mono
             font.weight: 500
@@ -83,7 +85,7 @@ Item {
         StyledText {
             Layout.fillWidth: true
             animate: true
-            text: Players.active?.trackArtist ?? qsTr("No media")
+            text: Players.active?.trackArtist ?? qsTr(Config.dialogues.pick(Config.dialogues.mediaPlayer.nothing))
             color: Colours.palette.m3primary
             horizontalAlignment: Text.AlignHCenter
             font.pointSize: Appearance.font.size.large
@@ -95,7 +97,7 @@ Item {
         StyledText {
             Layout.fillWidth: true
             animate: true
-            text: Players.active?.trackTitle ?? qsTr("No media")
+            text: Players.active?.trackTitle ?? qsTr("")
             horizontalAlignment: Text.AlignHCenter
             font.pointSize: Appearance.font.size.larger
             font.family: Appearance.font.family.mono
