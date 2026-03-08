@@ -39,7 +39,7 @@ ColumnLayout {
             StyledText {
                 Layout.alignment: Qt.AlignVCenter
                 Layout.fillWidth: true
-                text: qsTr("Recordings")
+                text: qsTr("My recordings of torena-kun")
                 font.pointSize: Appearance.font.size.normal
             }
 

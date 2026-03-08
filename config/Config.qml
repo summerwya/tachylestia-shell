@@ -26,6 +26,7 @@ Singleton {
     property alias sidebar: adapter.sidebar
     property alias services: adapter.services
     property alias paths: adapter.paths
+    property alias dialogues: adapter.dialogues
 
     // Public save function - call this to persist config changes
     function save(): void {
@@ -122,8 +123,8 @@ Singleton {
                 }
             },
             anim: {
-                mediaGifSpeedAdjustment: 300,
-                sessionGifSpeed: 0.7,
+                mediaGifSpeedAdjustment: 120,
+                sessionGifSpeed: 1,
                 durations: {
                     scale: appearance.anim.durations.scale
                 }
@@ -517,6 +518,7 @@ Singleton {
             property SidebarConfig sidebar: SidebarConfig {}
             property ServiceConfig services: ServiceConfig {}
             property UserPaths paths: UserPaths {}
+            property DialoguesConfig dialogues: DialoguesConfig {}
         }
     }
 }

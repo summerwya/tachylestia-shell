@@ -13,11 +13,13 @@ Column {
     width: Config.bar.sizes.batteryWidth
 
     StyledText {
-        text: UPower.displayDevice.isLaptopBattery ? qsTr("Remaining: %1%").arg(Math.round(UPower.displayDevice.percentage * 100)) : qsTr("No battery detected")
+        text: UPower.displayDevice.isLaptopBattery ? qsTr(Config.dialogues.pick(Config.dialogues.battery.charge)).arg(Math.round(UPower.displayDevice.percentage * 100)) : qsTr(Config.dialogues.pick(Config.dialogues.battery.noCoffee))
     }
 
     StyledText {
         function formatSeconds(s: int, fallback: string): string {
+            if (s == 0) return fallback
+
             const day = Math.floor(s / 86400);
             const hr = Math.floor(s / 3600) % 60;
             const min = Math.floor(s / 60) % 60;
@@ -30,10 +32,20 @@ Column {
             if (min > 0)
                 comps.push(`${min} mins`);
 
-            return comps.join(", ") || fallback;
+            return comps.join(", ");
         }
 
-        text: UPower.displayDevice.isLaptopBattery ? qsTr("Time %1: %2").arg(UPower.onBattery ? "remaining" : "until charged").arg(UPower.onBattery ? formatSeconds(UPower.displayDevice.timeToEmpty, "Calculating...") : formatSeconds(UPower.displayDevice.timeToFull, "Fully charged!")) : qsTr("Power profile: %1").arg(PowerProfile.toString(PowerProfiles.profile))
+        text: {
+            if (!UPower.displayDevice.isLaptopBattery) {
+                return qsTr(pick(Config.dialogues.battery.charge)).arg(PowerProfile.toString(PowerProfiles.profile));
+            }
+
+            const calculatedTime = formatSeconds(UPower.onBattery ? UPower.displayDevice.timeToEmpty : UPower.displayDevice.timeToFull, UPower.onBattery ? "<NO_CALC>" : "<FULL>");
+            if (calculatedTime === "<NO_CALC>") return qsTr(Config.dialogues.pick(Config.dialogues.battery.calculating))
+            else if (calculatedTime === "<FULL>") return qsTr(Config.dialogues.pick(Config.dialogues.battery.full))
+            
+            return qsTr(Config.dialogues.pick(Config.dialogues.battery.calculatedTime)).arg(calculatedTime).arg(Config.dialogues.pick(UPower.onBattery ? Config.dialogues.battery.timeLeft : Config.dialogues.battery.untilFull))
+        }
     }
 
     Loader {

@@ -22,32 +22,88 @@ GridLayout {
         service: SystemUsage
     }
 
-    Resource {
-        Layout.topMargin: Appearance.padding.large
-        icon: "memory"
-        value: SystemUsage.cpuPerc
-        colour: Colours.palette.m3primary
+    StyledRect {
+        Layout.fillWidth: true
+        implicitHeight: width
+
+        StyledClippingRect {
+            anchors.fill: parent
+
+            color: Colours.tPalette.m3surfaceContainer
+            radius: Appearance.rounding.full
+
+            Image {
+                anchors.fill: parent
+                source:  {
+                            return Qt.resolvedUrl(Config.paths.tachyonImages[Math.floor(Math.random() * Config.paths.tachyonImages.length)])
+                        }
+                fillMode: Image.PreserveAspectFit
+                Layout.alignment: Qt.AlignCenter
+            }
+        }
     }
 
-    Resource {
-        Layout.topMargin: Appearance.padding.large
-        icon: "thermostat"
-        value: Math.min(1, SystemUsage.cpuTemp / 90)
-        colour: Colours.palette.m3secondary
+    StyledRect {
+        Layout.fillWidth: true
+        implicitHeight: width
+
+        StyledClippingRect {
+            anchors.fill: parent
+
+            color: Colours.tPalette.m3surfaceContainer
+            radius: Appearance.rounding.full
+
+            Image {
+                anchors.fill: parent
+                source:  {
+                            return Qt.resolvedUrl(Config.paths.tachyonImages[Math.floor(Math.random() * Config.paths.tachyonImages.length)])
+                        }
+                fillMode: Image.PreserveAspectFit
+                Layout.alignment: Qt.AlignCenter
+            }
+        }
     }
 
-    Resource {
-        Layout.bottomMargin: Appearance.padding.large
-        icon: "memory_alt"
-        value: SystemUsage.memPerc
-        colour: Colours.palette.m3secondary
+    StyledRect {
+        Layout.fillWidth: true
+        implicitHeight: width
+
+        StyledClippingRect {
+            anchors.fill: parent
+
+            color: Colours.tPalette.m3surfaceContainer
+            radius: Appearance.rounding.full
+
+            Image {
+                anchors.fill: parent
+                source:  {
+                            return Qt.resolvedUrl(Config.paths.tachyonImages[Math.floor(Math.random() * Config.paths.tachyonImages.length)])
+                        }
+                fillMode: Image.PreserveAspectFit
+                Layout.alignment: Qt.AlignCenter
+            }
+        }
     }
 
-    Resource {
-        Layout.bottomMargin: Appearance.padding.large
-        icon: "hard_disk"
-        value: SystemUsage.storagePerc
-        colour: Colours.palette.m3tertiary
+    StyledRect {
+        Layout.fillWidth: true
+        implicitHeight: width
+
+        StyledClippingRect {
+            anchors.fill: parent
+
+            color: Colours.tPalette.m3surfaceContainer
+            radius: Appearance.rounding.full
+
+            Image {
+                anchors.fill: parent
+                source:  {
+                            return Qt.resolvedUrl(Config.paths.tachyonImages[Math.floor(Math.random() * Config.paths.tachyonImages.length)])
+                        }
+                fillMode: Image.PreserveAspectFit
+                Layout.alignment: Qt.AlignCenter
+            }
+        }
     }
 
     component Resource: StyledRect {

@@ -135,7 +135,7 @@ Item {
             Layout.topMargin: Appearance.spacing.normal
             Layout.leftMargin: Appearance.padding.normal
             visible: forecastRepeater.count > 0
-            text: qsTr("7-Day Forecast")
+            text: qsTr("Here's a 7-day forecast, torena-kun~")
             font.pointSize: Appearance.font.size.normal
             font.weight: 600
             color: Colours.palette.m3onSurface

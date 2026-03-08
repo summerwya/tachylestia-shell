@@ -30,25 +30,21 @@ StyledRect {
             spacing: Appearance.spacing.normal
             z: 1
 
-            StyledRect {
+            StyledClippingRect {
                 implicitWidth: implicitHeight
-                implicitHeight: {
-                    const h = icon.implicitHeight + Appearance.padding.smaller * 2;
-                    return h - (h % 2);
-                }
+                implicitHeight: Appearance.padding.larger * 4
 
                 radius: Appearance.rounding.full
                 color: Recorder.running ? Colours.palette.m3secondary : Colours.palette.m3secondaryContainer
 
-                MaterialIcon {
+                Image {
                     id: icon
 
+                    anchors.fill: parent
                     anchors.centerIn: parent
-                    anchors.horizontalCenterOffset: -0.5
-                    anchors.verticalCenterOffset: 1.5
-                    text: "screen_record"
-                    color: Recorder.running ? Colours.palette.m3onSecondary : Colours.palette.m3onSecondaryContainer
-                    font.pointSize: Appearance.font.size.large
+                    scale: 1.5
+                    fillMode: Image.PreserveAspectFit
+                    source: Qt.resolvedUrl("root:/assets/yapper.png")
                 }
             }
 
@@ -58,14 +54,14 @@ StyledRect {
 
                 StyledText {
                     Layout.fillWidth: true
-                    text: qsTr("Screen Recorder")
+                    text: qsTr("Tachy Cam")
                     font.pointSize: Appearance.font.size.normal
                     elide: Text.ElideRight
                 }
 
                 StyledText {
                     Layout.fillWidth: true
-                    text: Recorder.paused ? qsTr("Recording paused") : Recorder.running ? qsTr("Recording running") : qsTr("Recording off")
+                    text: Recorder.paused ? qsTr(Config.dialogues.pick(Config.dialogues.record.paused)) : Recorder.running ? qsTr(Config.dialogues.pick(Config.dialogues.record.recording)) : qsTr(Config.dialogues.pick(Config.dialogues.record.idle))
                     color: Colours.palette.m3onSurfaceVariant
                     font.pointSize: Appearance.font.size.small
                     elide: Text.ElideRight
@@ -80,25 +76,25 @@ StyledRect {
                 menuItems: [
                     MenuItem {
                         icon: "fullscreen"
-                        text: qsTr("Record fullscreen")
-                        activeText: qsTr("Fullscreen")
+                        text: qsTr("Record everything")
+                        activeText: qsTr("Everything")
                         onClicked: Recorder.start()
                     },
                     MenuItem {
                         icon: "screenshot_region"
-                        text: qsTr("Record region")
+                        text: qsTr("Record specific area")
                         activeText: qsTr("Region")
                         onClicked: Recorder.start(["-r"])
                     },
                     MenuItem {
                         icon: "select_to_speak"
-                        text: qsTr("Record fullscreen with sound")
+                        text: qsTr("Everything with sound")
                         activeText: qsTr("Fullscreen")
                         onClicked: Recorder.start(["-s"])
                     },
                     MenuItem {
                         icon: "volume_up"
-                        text: qsTr("Record region with sound")
+                        text: qsTr("Specific area with sound")
                         activeText: qsTr("Region")
                         onClicked: Recorder.start(["-sr"])
                     }
