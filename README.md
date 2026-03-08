@@ -23,19 +23,34 @@ https://github.com/user-attachments/assets/0840f496-575c-4ca6-83a8-87bb01a85c5f
 -   Window manager: [`Hyprland`](https://hyprland.org)
 -   Dots: [`caelestia`](https://github.com/caelestia-dots)
 
-## Installation
+## Installation (Arch Linux)
 
-> [!NOTE]
-> This repo is an alternative shell for caelestia dots. If you want installation instructions
-> for the original shell, head to [this repo](https://github.com/caelestia-dots/shell) instead.
+This is not installable with `yay`. Follow the steps below to use:
 
-### Arch linux
+### Step 1
 
-This is not installable with `yay`, you have to install [this](https://github.com/caelestia-dots/caelestia) first before replacing the shell with this one
+- Install [caelestia](https://github.com/caelestia-dots/caelestia)
+
+### Step 2
+
+Clone this repo then build
+
+```shell
+cd $XDG_CONFIG_HOME/quickshell
+git clone https://github.com/summerwya/tachylestia-shell.git tachylestia
+
+cd caelestia
+cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/
+cmake --build build
+sudo cmake --install build
+```
+
+### Step 3
+
+Done:3 (Idk, i think that's what i did)
 
 ## TODO
 
-- Include how to uhh, install (From caelestia to replacing the shell with this)
 - Does using `qsTr` even do anything when the dialogue is randomized?
 - Add more images
 - Instead of replacing the resource gauges in the lock screen with just images of tachyon, just make the backgrounds of the gauges be tachyon
@@ -43,7 +58,8 @@ This is not installable with `yay`, you have to install [this](https://github.co
 
 ## Credits
 
-Thanks to the original caelestia-shell and caelestia as a whole.
+- The [Caelestia-dots](https://github.com/caelestia-dots/caelestia) rice.
+- Agnes Tachyon is from [Uma musume: Pretty Derby](https://umamusume.com/).
 
 ## Stonks 📈
 
