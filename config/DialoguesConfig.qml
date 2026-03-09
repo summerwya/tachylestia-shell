@@ -23,11 +23,11 @@ JsonObject {
     component Battery: JsonObject {
         property list<string> full: ["I'm full now"]
         property list<string> calculatedTime: ["you have %1 %2"]
-        property list<string> charge: ["I'm %1% right now", "I have %1% of coffee"]
-        property list<string> timeLeft: ["left with me", "of coffee in me"]
-        property list<string> untilFull: ["until I'm full of coffee"]
+        property list<string> charge: ["I'm %1% right now", "I have %1% of tea"]
+        property list<string> timeLeft: ["left with me", "of tea in me"]
+        property list<string> untilFull: ["until I'm full of tea"]
         property list<string> calculating: ["Solving...", "Calculating whatever..."]
-        property list<string> noCoffee: ["I don't have any coffee", "No coffee detected, please don't unplug", "No caffeine", "No coffee"]
+        property list<string> noTea: ["I don't have any tea", "No tea detected, please don't unplug", "No tea"]
     }
 
     component Lock: JsonObject {
