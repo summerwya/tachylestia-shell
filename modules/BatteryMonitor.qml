@@ -15,10 +15,10 @@ Scope {
         function onOnBatteryChanged(): void {
             if (UPower.onBattery) {
                 if (Config.utilities.toasts.chargingChanged)
-                    Toaster.toast(qsTr("Charger unplugged"), qsTr("Battery is discharging"), "power_off");
+                    Toaster.toast(qsTr(Config.dialogues.pick(Config.dialogues.battery.unplugged)), qsTr("Battery is discharging"), "power_off");
             } else {
                 if (Config.utilities.toasts.chargingChanged)
-                    Toaster.toast(qsTr("Charger plugged in"), qsTr("Battery is charging"), "power");
+                    Toaster.toast(qsTr(Config.dialogues.pick(Config.dialogues.battery.plugged)), qsTr("Battery is charging"), "power");
                 for (const level of root.warnLevels)
                     level.warned = false;
             }
@@ -36,12 +36,12 @@ Scope {
             for (const level of root.warnLevels) {
                 if (p <= level.level && !level.warned) {
                     level.warned = true;
-                    Toaster.toast(level.title ?? qsTr("Battery warning"), level.message ?? qsTr("Battery level is low"), level.icon ?? "battery_android_alert", level.critical ? Toast.Error : Toast.Warning);
+                    Toaster.toast(level.title ?? qsTr("Battery warning"), level.message ?? qsTr(Config.dialogues.pick(Config.dialogues.battery.lowTea)), level.icon ?? "battery_android_alert", level.critical ? Toast.Error : Toast.Warning);
                 }
             }
 
             if (!hibernateTimer.running && p <= Config.general.battery.criticalLevel) {
-                Toaster.toast(qsTr("Hibernating in 5 seconds"), qsTr("Hibernating to prevent data loss"), "battery_android_alert", Toast.Error);
+                Toaster.toast(qsTr("Hibernating in 5 seconds"), qsTr(Config.dialogues.pick(Config.dialogues.battery.passingOut)), "battery_android_alert", Toast.Error);
                 hibernateTimer.start();
             }
         }
