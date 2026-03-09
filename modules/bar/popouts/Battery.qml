@@ -13,7 +13,7 @@ Column {
     width: Config.bar.sizes.batteryWidth
 
     StyledText {
-        text: UPower.displayDevice.isLaptopBattery ? qsTr(Config.dialogues.pick(Config.dialogues.battery.charge)).arg(Math.round(UPower.displayDevice.percentage * 100)) : qsTr(Config.dialogues.pick(Config.dialogues.battery.noCoffee))
+        text: UPower.displayDevice.isLaptopBattery ? qsTr(Config.dialogues.pick(Config.dialogues.battery.charge)).arg(Math.round(UPower.displayDevice.percentage * 100)) : qsTr(Config.dialogues.pick(Config.dialogues.battery.noTea))
     }
 
     StyledText {

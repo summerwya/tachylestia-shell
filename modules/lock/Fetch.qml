@@ -85,7 +85,7 @@ ColumnLayout {
                 active: UPower.displayDevice.isLaptopBattery
 
                 sourceComponent: FetchText {
-                    text: `Coffee Left: ${[UPowerDeviceState.Charging, UPowerDeviceState.FullyCharged, UPowerDeviceState.PendingCharge].includes(UPower.displayDevice.state) ? "(+) " : ""}${Math.round(UPower.displayDevice.percentage * 100)}%`
+                    text: `Tea Left: ${[UPowerDeviceState.Charging, UPowerDeviceState.FullyCharged, UPowerDeviceState.PendingCharge].includes(UPower.displayDevice.state) ? "(+) " : ""}${Math.round(UPower.displayDevice.percentage * 100)}%`
                 }
             }
         }

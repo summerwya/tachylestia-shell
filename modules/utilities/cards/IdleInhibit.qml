@@ -35,7 +35,7 @@ StyledRect {
                 id: icon
 
                 anchors.centerIn: parent
-                text: "coffee"
+                text: "emoji_food_beverage"
                 color: IdleInhibitor.enabled ? Colours.palette.m3onSecondary : Colours.palette.m3onSecondaryContainer
                 font.pointSize: Appearance.font.size.large
             }
