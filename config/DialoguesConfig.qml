@@ -48,9 +48,9 @@ JsonObject {
 
         const roll = Math.random() // TODO - add a processor to have nested selections
 
-        if (roll < .3) return selected
-        else if (roll < .6) return "Torena-kun, " + selected
-        else return selected + ", torena-kun"
+        if (roll < .3) return track(selected)
+        else if (roll < .6) return "Torena-kun, " + track(selected)
+        else return track(selected) + ", torena-kun"
     }
 
     component Battery: JsonObject {
