@@ -91,25 +91,6 @@ ColumnLayout {
         }
     }
 
-    Component {
-        id: caelestiaLogo
-
-        Logo {
-            width: height
-        }
-    }
-
-    Component {
-        id: distroIcon
-
-        ColouredIcon {
-            source: SysInfo.osLogo
-            implicitSize: height
-            colour: Colours.palette.m3primary
-            layer.enabled: Config.lock.recolourLogo
-        }
-    }
-
     component WrappedLoader: Loader {
         visible: active
     }
