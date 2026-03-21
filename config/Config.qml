@@ -27,7 +27,6 @@ Singleton {
     property alias services: adapter.services
     property alias paths: adapter.paths
     property alias dialogues: adapter.dialogues
-
     property bool recentlySaved: false
 
     // Public save function - call this to persist config changes
