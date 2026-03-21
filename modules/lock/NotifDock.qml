@@ -45,7 +45,7 @@ ColumnLayout {
         Loader {
             anchors.centerIn: parent
             active: opacity > 0
-            opacity: Notifs.list.length > 0 ? 0 : 1
+            opacity: Notifs.list.length > 0 && !Config.lock.hideNotifs ? 0 : 1
 
             sourceComponent: ColumnLayout {
                 spacing: Appearance.spacing.large
@@ -66,7 +66,7 @@ ColumnLayout {
                 StyledText {
                     Layout.alignment: Qt.AlignHCenter
                     text: {
-                        return qsTr(Config.dialogues.pick(Config.dialogues.notification.none))
+                        return Config.lock.hideNotifs ? qsTr("Unlock for Notifications") : qsTr(Config.dialogues.pick(Config.dialogues.notification.none))
                     }
                     color: Colours.palette.m3outlineVariant
                     font.pointSize: Appearance.font.size.small
@@ -84,7 +84,7 @@ ColumnLayout {
 
         StyledListView {
             anchors.fill: parent
-
+            visible: !Config.lock.hideNotifs
             spacing: Appearance.spacing.small
             clip: true
 
